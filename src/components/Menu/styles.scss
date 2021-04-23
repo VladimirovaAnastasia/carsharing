@@ -1,0 +1,233 @@
+.menu {
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__common {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px 16px;
+    background-color: var(--color-black);
+    z-index: 4;
+    width: 64px;
+
+    @media (max-width: 1023px) {
+      width: 86px;
+    }
+
+    @media (max-width: 767px) {
+      width: 64px;
+      background-color: transparent;
+      padding: 20px;
+      order: 1;
+      z-index: 5;
+    }
+
+    .menu__button {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__details {
+    position: absolute;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    background: rgba(21, 27, 31, 0.81);
+
+    @media (max-width: 767px) {
+      position: relative;
+      left: 0;
+      width: 100%;
+      order: 0;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      height: 100%;
+      width: calc((50% + 96px)) ;
+      background-color: var(--color-black);
+
+      @media (max-width: 1023px) {
+        width: 100%;
+      }
+
+      @media (max-width: 767px) {
+        height: 100vh;
+      }
+    }
+
+    .menu__button {
+      position: absolute;
+      margin: 32px 16px;
+
+      @media (max-width: 1023px) {
+        margin: 32px 22px;
+      }
+
+      @media (max-width: 767px) {
+        margin: 20px;
+      }
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    height: 32px;
+    width: 32px;
+    z-index: 1;
+
+
+    &--close {
+      background-image: url("../../assets/images/menu-button--close.svg");
+    }
+
+    &--open {
+      background-image: url("../../assets/images/menu-button--open.svg");
+
+      @media (max-width: 767px) {
+        background-image: url("../../assets/images/menu-button-open--black.svg");
+      }
+    }
+  }
+
+  &__lang {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-green);
+    cursor: pointer;
+
+    @media (max-width: 767px) {
+      z-index: 2;
+      display: none;
+    }
+
+    &--hidden {
+      display: none;
+      @media (max-width: 767px) {
+        display: block;
+      }
+    }
+
+    &:hover {
+      color: #FFFFFF;
+      &:before {
+        content: '';
+        position: absolute;
+        top: -15px;
+        left: -8px;
+        height: 48px;
+        width: 48px;
+        border: 1px solid #EEEEEE;
+        border-radius: 50%;
+
+        @media (max-width: 1023px) {
+          left: 2px;
+        }
+
+        @media (max-width: 767px) {
+          left: -8px;
+        }
+      }
+    }
+  }
+}
+
+.menu-options {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  margin-left: 96px;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  z-index: 3;
+
+  @media (max-width: 767px) {
+    top: 80px;
+    left: 28px;
+    transform: translateY(0);
+    width: 250px;
+    margin-left: 0;
+  }
+
+  &__item {
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 37px;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+    @media (max-width: 767px) {
+      font-size: 22px;
+      line-height: 26px;
+      margin-bottom: 15px;
+    }
+
+    &:hover {
+      color: var(--color-green)
+    }
+
+    &--active {
+      color: var(--color-green)
+    }
+  }
+}
+
+.menu-social {
+  position: relative;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 300px;
+  margin-left: 96px;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  z-index: 3;
+
+  @media (max-width: 767px) {
+    top: 118px;
+    left: 28px;
+    width: 250px;
+    margin-left: 0;
+  }
+
+  &__item {
+    width: 32px;
+    height: 32px;
+    margin-right: 24px;
+    cursor: pointer;
+  }
+
+  &__item:nth-child(1) {
+    background-image: url("../../assets/images/telegram-icon.svg");
+  }
+
+  &__item:nth-child(2) {
+    background-image: url("../../assets/images/facebook-icon.svg");
+  }
+
+  &__item:nth-child(3) {
+    background-image: url("../../assets/images/instagram-icon.svg");
+  }
+}
