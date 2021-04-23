@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/carsharing/static/css/main.fae47ba4.chunk.css",
+    "main.js": "/carsharing/static/js/main.f8d1e0fe.chunk.js",
+    "main.js.map": "/carsharing/static/js/main.f8d1e0fe.chunk.js.map",
+    "runtime-main.js": "/carsharing/static/js/runtime-main.6179c022.js",
+    "runtime-main.js.map": "/carsharing/static/js/runtime-main.6179c022.js.map",
+    "static/css/2.5dbc6bf2.chunk.css": "/carsharing/static/css/2.5dbc6bf2.chunk.css",
+    "static/js/2.baf91de3.chunk.js": "/carsharing/static/js/2.baf91de3.chunk.js",
+    "static/js/2.baf91de3.chunk.js.map": "/carsharing/static/js/2.baf91de3.chunk.js.map",
+    "index.html": "/carsharing/index.html",
+    "static/css/2.5dbc6bf2.chunk.css.map": "/carsharing/static/css/2.5dbc6bf2.chunk.css.map",
+    "static/css/main.fae47ba4.chunk.css.map": "/carsharing/static/css/main.fae47ba4.chunk.css.map",
+    "static/js/2.baf91de3.chunk.js.LICENSE.txt": "/carsharing/static/js/2.baf91de3.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/carsharing/static/media/Roboto-Regular.a8d6ac03.ttf",
+    "static/media/styles.scss": "/carsharing/static/media/telegram-icon.e8137bbe.svg",
+    "static/media/slide-1.png": "/carsharing/static/media/slide-1.ec7c8b55.png",
+    "static/media/slide-2.png": "/carsharing/static/media/slide-2.69fb35f3.png",
+    "static/media/slide-3.png": "/carsharing/static/media/slide-3.63d9fbaf.png",
+    "static/media/slide-4.png": "/carsharing/static/media/slide-4.6936d30b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6179c022.js",
+    "static/css/2.5dbc6bf2.chunk.css",
+    "static/js/2.baf91de3.chunk.js",
+    "static/css/main.fae47ba4.chunk.css",
+    "static/js/main.f8d1e0fe.chunk.js"
+  ]
+}
