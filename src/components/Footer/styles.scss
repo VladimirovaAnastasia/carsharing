@@ -48,7 +48,13 @@
       text-decoration: none;
       font-size: 13px;
       line-height: 15px;
+
       @media (max-width: 767px) {
+        color: var(--color-green);
+      }
+
+      &:active,
+      &:hover {
         color: var(--color-green);
       }
     }
