@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/carsharing/static/css/main.3edb5d12.chunk.css",
+    "main.css": "/carsharing/static/css/main.5569abba.chunk.css",
     "main.js": "/carsharing/static/js/main.a4b23abe.chunk.js",
     "main.js.map": "/carsharing/static/js/main.a4b23abe.chunk.js.map",
     "runtime-main.js": "/carsharing/static/js/runtime-main.6179c022.js",
@@ -10,7 +10,7 @@
     "static/js/2.c031416c.chunk.js.map": "/carsharing/static/js/2.c031416c.chunk.js.map",
     "index.html": "/carsharing/index.html",
     "static/css/2.5dbc6bf2.chunk.css.map": "/carsharing/static/css/2.5dbc6bf2.chunk.css.map",
-    "static/css/main.3edb5d12.chunk.css.map": "/carsharing/static/css/main.3edb5d12.chunk.css.map",
+    "static/css/main.5569abba.chunk.css.map": "/carsharing/static/css/main.5569abba.chunk.css.map",
     "static/js/2.c031416c.chunk.js.LICENSE.txt": "/carsharing/static/js/2.c031416c.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/carsharing/static/media/Roboto-Regular.a8d6ac03.ttf",
     "static/media/styles.scss": "/carsharing/static/media/telegram-icon.e8137bbe.svg",
@@ -23,7 +23,7 @@
     "static/js/runtime-main.6179c022.js",
     "static/css/2.5dbc6bf2.chunk.css",
     "static/js/2.c031416c.chunk.js",
-    "static/css/main.3edb5d12.chunk.css",
+    "static/css/main.5569abba.chunk.css",
     "static/js/main.a4b23abe.chunk.js"
   ]
 }
