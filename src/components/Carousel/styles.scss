@@ -148,7 +148,23 @@
 }
 
 .swiper-button-prev:after, .swiper-button-next:after {
+  position: relative;
   transform: scale(0.4);
+}
+
+.swiper-button-prev:after {
+  left: 5px;
+
+  @media (max-width: 1440px) {
+    left: 0;
+  }
+}
+
+.swiper-button-next:after {
+  right: 5px;
+  @media (max-width: 1440px) {
+    right: 0;
+  }
 }
 
 .swiper-pagination-bullets {
