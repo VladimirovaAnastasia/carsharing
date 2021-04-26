@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import StartPage from './pages/StartPage';
-import './assets/fonts/Roboto-Regular.ttf';
+import OrderPage from './pages/OrderPage';
 
 function App() {
     return (
@@ -11,6 +11,7 @@ function App() {
                     <Redirect to="/carsharing/start" />
                 </Route>
                 <Route exact path="/carsharing/start" component={StartPage} />
+                <Route exact path="/carsharing/order" component={OrderPage} />
                 <Route render={() => <h2>Page not found</h2>} />
             </Switch>
         </>

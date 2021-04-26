@@ -1,20 +1,30 @@
 import React from 'react';
-import './styles.scss';
+import {useHistory} from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
+import './styles.scss';
 
-const Intro = () => (
-    <div className="intro">
-        <Header />
-        <div className="intro-main">
-            <h1 className="intro__title">
-                Каршеринг <br /> <span className="intro__title--green">Need for drive</span>
-            </h1>
-            <p className="intro__subtitle">Поминутная аренда авто твоего города</p>
-            <button className="intro__button">Забронировать</button>
+const Intro = () => {
+    const history = useHistory();
+
+    const handleOnClick = () => {
+        history.push('order');
+    };
+    return (
+        <div className="intro">
+            <Header />
+            <div className="intro-main">
+                <h1 className="intro__title">
+                    Каршеринг <br /> <span className="intro__title--green">Need for drive</span>
+                </h1>
+                <p className="intro__subtitle">Поминутная аренда авто твоего города</p>
+                <button className="intro__button" onClick={() => handleOnClick()}>
+                    Забронировать
+                </button>
+            </div>
+            <Footer />
         </div>
-        <Footer />
-    </div>
-);
+    );
+};
 
 export default Intro;
