@@ -1,7 +1,6 @@
 import React from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import StartPage from './pages/StartPage';
-import './assets/fonts/Roboto-Regular.ttf';
 
 function App() {
     return (
