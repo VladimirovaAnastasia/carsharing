@@ -47,15 +47,15 @@
     border-radius: 4px;
 
     &--green {
-      background: linear-gradient(90deg, #0ec261 2.61%, #039f67 112.6%);
+      background: linear-gradient(90deg, #13493F 0%, #0C7B1B 100%);
 
       &:hover,
       &:focus {
-        background:  linear-gradient(90deg, #0B934A 2.61%, #026E47 112.6%);
+        background: linear-gradient(90deg, #103d35 0%, #0a6717 100%);
       }
 
       &:active {
-        background: linear-gradient(90deg, #076432 2.61%, #013C27 112.6%);
+        background: linear-gradient(90deg, #0e342d 0%, #084810 100%);
       }
     }
 
