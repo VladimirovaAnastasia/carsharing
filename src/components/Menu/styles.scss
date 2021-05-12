@@ -148,6 +148,9 @@
         }
       }
     }
+    &:active {
+      color: var(--color-green);
+    }
   }
 }
 

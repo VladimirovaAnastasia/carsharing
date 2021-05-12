@@ -1,6 +1,6 @@
 import React from 'react';
 import Menu from '../../components/Menu';
-import Main from '../../components/Main';
+import Main from './components/Main';
 import './styles.scss';
 
 const OrderPage = () => {

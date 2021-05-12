@@ -67,3 +67,20 @@ button {
   outline: none;
   border-style: none;
 }
+
+.wrapper {
+  margin: 0 auto;
+  width: 1248px;
+
+  @media (max-width: 1440px) {
+    width: 924px;
+  }
+
+  @media (max-width: 1023px) {
+    width: 668px;
+  }
+
+  @media (max-width: 767px) {
+    width: 90%;
+  }
+}

@@ -1,0 +1,46 @@
+.map-container {
+  margin-top: 20px;
+
+  &__title {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 0 0 12px 0;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: white;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--color-dark-grey);
+}
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: var(--color-dark-grey);
+}
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: var(--color-dark-grey);
+  opacity: 1;
+}
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: var(--color-dark-grey);
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: var(--color-dark-grey);
+}
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: var(--color-dark-grey);
+}
+
+::placeholder {
+  /* Most modern browsers support this now. */
+  color: var(--color-dark-grey);
+}

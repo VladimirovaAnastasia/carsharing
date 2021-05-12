@@ -1,0 +1,25 @@
+.location {
+  display: flex;
+  flex-direction: column;
+}
+
+.location-field {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 12px;
+
+  &__title {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    width: 100px;
+    margin: 0 8px 0 0;
+  }
+
+  &__select {
+    border: none;
+  }
+}
