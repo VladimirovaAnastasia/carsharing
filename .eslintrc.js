@@ -16,7 +16,7 @@ module.exports = {
             modules: true,
             experimentalObjectRestSpread: true,
         },
-        ecmaVersion: 12,
+        ecmaVersion: 2020,
         sourceType: 'module',
     },
     plugins: ['react', 'prettier'],

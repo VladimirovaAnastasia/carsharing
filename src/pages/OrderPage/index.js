@@ -1,17 +1,15 @@
 import React from 'react';
 import Menu from '../../components/Menu';
-import {Carousel} from './components/Carousel';
-import Intro from './components/Intro';
+import Main from './components/Main';
 import './styles.scss';
 
-const StartPage = () => {
+const OrderPage = () => {
     return (
         <div className="container">
             <Menu />
-            <Intro />
-            <Carousel />
+            <Main />
         </div>
     );
 };
 
-export default StartPage;
+export default OrderPage;

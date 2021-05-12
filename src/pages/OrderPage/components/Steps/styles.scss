@@ -1,0 +1,82 @@
+.steps-container {
+  position: relative;
+  margin-top: 8px;
+
+  &:before {
+    position: absolute;
+    top: -8px;
+    content: '';
+    height: 1px;
+    width: 100%;
+    background: var(--color-light-grey);
+  }
+
+  &:after {
+    position: absolute;
+    bottom: -8px;
+    content: '';
+    height: 1px;
+    width: 100%;
+    background: var(--color-light-grey);
+  }
+}
+
+.steps {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+
+  @media (max-width: 350px) {
+    justify-content: space-between;
+  }
+
+  &__item {
+    display: initial;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    color: var(--color-dark-grey);
+
+    @media (max-width: 767px) {
+      font-size: 12px;
+      line-height: 14px;
+    }
+
+    @media (max-width: 450px) {
+      font-size: 11px;
+    }
+
+    &::after {
+      content: url("../../../../assets/images/next-icon.svg");
+      padding: 0 16px;
+
+      @media (max-width: 767px) {
+        padding: 0 12px;
+      }
+
+      @media (max-width: 400px) {
+        padding: 0 6px;
+      }
+
+      @media (max-width: 350px) {
+        position: relative;
+        top: 1px;
+        padding: 0 3px;
+      }
+    }
+
+    &:last-child::after {
+      content: "";
+    }
+
+    &--done {
+      color: var(--color-black);
+      cursor: pointer;
+    }
+
+    &--active {
+      color: var(--color-green);
+      cursor: pointer;
+    }
+  }
+}
