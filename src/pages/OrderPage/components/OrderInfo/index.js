@@ -42,7 +42,7 @@ const OrderInfo = () => {
                     <p className="point__key">Пункт выдачи</p>
                     <span className="point__dots"></span>
                     <p className="point__value">
-                        {cityName && pointName ? cityName + ', ' + pointName : 'Выбирите пункт'}
+                        {cityName && pointName ? cityName + ', ' + pointName : 'Выберите пункт'}
                     </p>
                 </div>
             </div>
