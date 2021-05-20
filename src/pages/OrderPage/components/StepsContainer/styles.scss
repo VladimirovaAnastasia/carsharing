@@ -1,3 +1,10 @@
 .step-content {
   padding-top: 32px;
+  width: calc(100% - 320px);
+  height: 100%;
+
+  @media (max-width: 1440px) {
+    width: 100%;
+  }
 }
+

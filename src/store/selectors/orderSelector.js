@@ -1,23 +1,9 @@
-export const stepsSelector = (state) => {
-    return state.order.steps;
-};
-
-export const currentStepSelector = (state) => {
-    return state.order.currentStep;
-};
-
-export const cityNameSelector = (state) => {
-    return state.order.cityName;
-};
-
-export const citySelector = (state) => {
-    return state.order.city;
-};
-
-export const pointNameSelector = (state) => {
-    return state.order.pointName;
-};
-
-export const pointSelector = (state) => {
-    return state.order.point;
-};
+export const orderSelector = (state) => state.order;
+export const stepsSelector = (state) => state.order.steps;
+export const currentStepSelector = (state) => state.order.currentStep;
+export const cityNameSelector = (state) => state.order.cityName;
+export const citySelector = (state) => state.order.city;
+export const pointNameSelector = (state) => state.order.pointName;
+export const pointSelector = (state) => state.order.point;
+export const categorySelector = (state) => state.order.category;
+export const carSelector = (state) => state.order.car;

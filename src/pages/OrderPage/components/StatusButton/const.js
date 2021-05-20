@@ -12,6 +12,9 @@ export const buttons = [
         title: 'Заказать',
     },
     {
+        title: 'Заказать',
+    },
+    {
         title: 'Отменить',
     },
 ];

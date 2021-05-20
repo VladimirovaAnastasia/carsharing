@@ -1,0 +1,87 @@
+.extra {
+  display: flex;
+  flex-direction: column;
+}
+
+.extra-point {
+  margin-bottom: 32px;
+
+  &__title {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: var(--color-black);
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+
+  &__text {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: var(--color-dark-grey);
+    margin: 0;
+  }
+}
+
+.type {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+
+  .group {
+
+    .datapicker-wrapper {
+      padding-bottom: 13px;
+      display: flex;
+      flex: 1 0 220px;
+      span {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex: 1 0 18px;
+        padding-right: 4px;
+        color: var(--color-black);
+        font-style: normal;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 16px;
+      }
+      .datapicker {
+        border: none;
+        border-bottom: 1px solid var(--color-dark-grey);
+        outline: none;
+        padding-left: 8px;
+      }
+
+      button {
+        padding: 0;
+
+        &:after {
+          font-size: 18px;
+          background-color: transparent;
+          color: var(--color-black);
+        }
+      }
+    }
+
+    legend {
+      font-style: normal;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 16px;
+
+      padding-bottom: 14px;
+
+      color: var(--color-black);
+    }
+  }
+}
+
+.react-datepicker__input-container input:disabled {
+  background: transparent;
+}

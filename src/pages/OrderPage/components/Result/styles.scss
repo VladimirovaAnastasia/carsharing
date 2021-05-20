@@ -1,0 +1,65 @@
+.result {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+}
+
+.result-description {
+  display: flex;
+  flex-direction: column;
+
+  &__model {
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: normal;
+    margin:0;
+
+    color: var(--color-black);
+  }
+
+  &__car-number {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(18, 18, 18);
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-right: auto;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 4px 8px;
+  }
+
+  &__point {
+    margin-top: 0;
+    margin-bottom: 4px;
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+    line-height: 16px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .point-title {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+}
+
+.result-img {
+  width: 256px;
+  height: 116px;
+}

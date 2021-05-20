@@ -1,10 +1,8 @@
-.steps-container {
+.steps {
   position: relative;
-  margin-top: 8px;
 
   &:before {
     position: absolute;
-    top: -8px;
     content: '';
     height: 1px;
     width: 100%;
@@ -13,7 +11,6 @@
 
   &:after {
     position: absolute;
-    bottom: -8px;
     content: '';
     height: 1px;
     width: 100%;
@@ -21,14 +18,12 @@
   }
 }
 
-.steps {
+.steps-list {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  height: 32px;
   margin: 0;
-
-  @media (max-width: 350px) {
-    justify-content: space-between;
-  }
 
   &__item {
     display: initial;
@@ -44,6 +39,10 @@
 
     @media (max-width: 450px) {
       font-size: 11px;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 10px;
     }
 
     &::after {
@@ -69,12 +68,12 @@
       content: "";
     }
 
-    &--done {
+    &--available {
       color: var(--color-black);
       cursor: pointer;
     }
 
-    &--active {
+    &--current {
       color: var(--color-green);
       cursor: pointer;
     }

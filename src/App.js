@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
-import StartPage from './pages/StartPage';
-import OrderPage from './pages/OrderPage';
+import {StartPage} from './pages/StartPage';
+import {OrderPage} from './pages/OrderPage';
 
 function App() {
     return (

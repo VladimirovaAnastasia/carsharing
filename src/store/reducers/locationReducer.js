@@ -16,7 +16,6 @@ export const slice = createSlice({
             isLoading: true,
             error: null,
         }),
-
         [fetchCities.fulfilled]: (state, action) => ({
             ...state,
             isLoading: false,
