@@ -24,7 +24,7 @@ const Extra = () => {
     const isLoadingRates = useSelector(isLoadingRatesSelector);
     const order = useSelector(orderSelector);
     const rates = useSelector(ratesSelector);
-    const {car, rate, duration} = order;
+    const {car, rate, duration, colour} = order;
 
     const defaultCarColor = {
         name: 'Любой',
@@ -92,7 +92,7 @@ const Extra = () => {
     const createRatesOptions = (rates) => {
         return rates.map((item) => {
             return {
-                name: item.rateTypeId?.name + '/' + item?.price + '₽ ' + item.rateTypeId?.unit,
+                name: item.rateTypeId?.name + ', ' + item?.price + ' ₽/' + item.rateTypeId?.unit,
                 id: item.id,
             };
         });
@@ -124,7 +124,7 @@ const Extra = () => {
                     <Radio
                         name="colours"
                         radioOptions={createCarOptions(car)}
-                        activeOption={car?.name || defaultCarColor.name}
+                        activeOption={colour || defaultCarColor.name}
                         onHandleChange={(colourName) => changeActiveCarColour(colourName)}
                         value="name"
                         isHorizontal={true}

@@ -9,9 +9,8 @@
     background: linear-gradient(90deg, #493013 0%, #7b0c3b 100%);
   }
 
-  @media (max-width: 767px) {
-    width: 100%;
-    margin-bottom: 30px;
+  @media (max-width: 450px) {
+    width: 250px;
   }
 }
 

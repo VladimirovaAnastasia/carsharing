@@ -27,10 +27,10 @@ const Main = () => {
                     <OrderInfo />
                 )}
                 <div className="mobile-buttons">
+                    {isHiddenOrderInfo && <StatusButton />}
                     <button className="mobile-buttons__item" onClick={() => setHiddenOrderInfo((prev) => !prev)}>
                         <ShoppingImg />
                     </button>
-                    {isHiddenOrderInfo && <StatusButton />}
                 </div>
             </div>
         </div>

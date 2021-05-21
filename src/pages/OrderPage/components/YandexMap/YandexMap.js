@@ -6,16 +6,13 @@ import {cityNameSelector, pointNameSelector} from '../../../../store/selectors/o
 import {pointsSelector} from '../../../../store/selectors/locationSelector';
 import './styles.scss';
 
-const YandexMap = () => {
-    const init = (ymaps) => {
-        setYmapsInstances(ymaps);
-    };
-    const mapProperties = {
-        iconLayout: 'default#image',
-        iconImageSize: [18, 18],
-        iconImageHref: pointMapIcon,
-    };
+const mapProperties = {
+    iconLayout: 'default#image',
+    iconImageSize: [18, 18],
+    iconImageHref: pointMapIcon,
+};
 
+const YandexMap = () => {
     let city = useSelector(cityNameSelector);
     let point = useSelector(pointNameSelector);
     let points = useSelector(pointsSelector);
@@ -26,9 +23,9 @@ const YandexMap = () => {
     let [center, setCenter] = useState([55.7522, 37.6156]);
     const mapState = React.useMemo(() => ({center: center, zoom}), [zoom, center]);
 
-    useEffect(() => {
-        city && changeMapCenter(city, true);
-    }, [city]);
+    const init = (ymaps) => {
+        setYmapsInstances(ymaps);
+    };
 
     const setPoints = async (points) => {
         let newCoords = [];
@@ -38,15 +35,6 @@ const YandexMap = () => {
         }
         setCoordinates(newCoords);
     };
-
-    useEffect(() => {
-        points && setPoints(points);
-    }, [points]);
-
-    useEffect(() => {
-        !point && city && changeMapCenter(city, true);
-        point && changeMapCenter(city + ',' + point);
-    }, [point]);
 
     const changeMapCenter = async (address, isCity = false) => {
         isCity ? setZoom(10) : setZoom(15);
@@ -61,6 +49,16 @@ const YandexMap = () => {
             return firstGeoObject.geometry.getCoordinates();
         }
     };
+
+    useEffect(() => {
+        !point && city && changeMapCenter(city, true);
+        point && changeMapCenter(city + ',' + point);
+    }, [point]);
+
+    useEffect(() => {
+        points && setPoints(points);
+        city && changeMapCenter(city, true);
+    }, [points]);
 
     return (
         <div className="map-container">
