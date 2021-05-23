@@ -90,13 +90,14 @@ const Extra = () => {
     };
 
     const createRatesOptions = (rates) => {
-        return rates.map((item) => {
+        return rates?.map((item) => {
             return {
                 name: item.rateTypeId?.name + ', ' + item?.price + ' ₽/' + item.rateTypeId?.unit,
                 id: item.id,
             };
         });
     };
+    const ratesOptions = createRatesOptions(rates);
 
     const changeActiveCarColour = (colourName) => {
         dispatch(setColour(colourName));
@@ -111,6 +112,14 @@ const Extra = () => {
         let isComplete = !!car && !!rate && !!duration;
         dispatch(setCompleteStatus({id: 2, status: isComplete}));
     }, [car, rate, duration]);
+
+    useEffect(() => {
+        !rate && ratesOptions && changeRate(ratesOptions[0]?.name);
+    }, [ratesOptions]);
+
+    useEffect(() => {
+        !colour && dispatch(setColour(defaultCarColor.name));
+    }, [colour]);
 
     if (isLoadingRates) {
         return <Loader />;
@@ -142,8 +151,8 @@ const Extra = () => {
                     <p className="extra-point__title">Тариф</p>
                     <Radio
                         name="rates"
-                        radioOptions={createRatesOptions(rates)}
-                        activeOption={rate}
+                        radioOptions={ratesOptions}
+                        activeOption={rate || ratesOptions[0].name}
                         onHandleChange={(rateName) => changeRate(rateName)}
                         value="name"
                         isHorizontal={false}
