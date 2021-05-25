@@ -9,7 +9,7 @@ export default function usePriceCalculator() {
     const dispatch = useDispatch();
 
     const order = useSelector(orderSelector);
-    const rateId = order?.rateId;
+    const rateId = order?.rateId.id;
     const rates = useSelector(ratesSelector);
 
     const [orderPrice, setOrderPrice] = useState(0);

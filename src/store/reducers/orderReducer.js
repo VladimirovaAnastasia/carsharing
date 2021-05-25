@@ -29,22 +29,46 @@ const initialState = {
             isComplete: false,
         },
     ],
+    cityId: {
+        name: null,
+        id: null,
+    },
+    pointId: {
+        address: null,
+        name: null,
+        id: null,
+    },
+    carId: {
+        name: null,
+        id: null,
+    },
+    selectedCategory: {
+        name: null,
+        id: null,
+    },
+    rateId: {
+        unit: null,
+        name: null,
+        id: null,
+    },
+    orderStatusId: {
+        name: null,
+        id: null,
+    },
+    color: null,
     city: null,
-    cityId: null,
     cityName: null,
     point: null,
     pointName: null,
     category: null,
     car: null,
     model: null,
-    colour: null,
     dateFrom: null,
     dateTo: null,
     isFullTank: false,
     isNeedChildChair: false,
     isRightWheel: false,
     rate: null,
-    rateId: null,
     duration: null,
     price: null,
     isLoading: false,
@@ -60,28 +84,37 @@ export const slice = createSlice({
         },
         setCity: (state, action) => {
             state.city = action.payload;
-            state.cityId = action.payload?.value;
-            state.cityName = action.payload?.label;
+            state.cityId.id = action.payload?.value;
+            state.cityId.name = action.payload?.label;
         },
         setPoint: (state, action) => {
-            state.point = action.payload;
-            state.pointName = action.payload?.label;
+            state.point = action.payload?.pointOption;
+            state.pointName = action.payload?.point.address;
+            state.pointId.id = action.payload?.point.id;
+            state.pointId.name = action.payload?.point.name;
+            state.pointId.address = action.payload?.point.address;
         },
         setCategory: (state, action) => {
             state.category = action.payload;
+            state.selectedCategory.name = action.payload?.name;
+            state.selectedCategory.id = action.payload?.id;
         },
         setCar: (state, action) => {
             state.car = action.payload;
+            state.carId.name = action.payload?.name;
+            state.carId.id = action.payload?.id;
         },
         setCompleteStatus: (state, action) => {
             state.steps[action.payload.id].isComplete = action.payload.status;
         },
-        setColour: (state, action) => {
-            state.colour = action.payload;
+        setColor: (state, action) => {
+            state.color = action.payload;
         },
         setRate: (state, action) => {
             state.rate = action.payload.rateName;
-            state.rateId = action.payload.id;
+            state.rateId.id = action.payload.activeRate.id;
+            state.rateId.unit = action.payload.activeRate.rateTypeId.unit;
+            state.rateId.name = action.payload.activeRate.rateTypeId.name;
         },
         setAdditionalOption: (state, action) => {
             state[action.payload.id] = action.payload.val;
@@ -112,11 +145,17 @@ export const slice = createSlice({
             cityId: state.cityId,
             point: state.point,
             pointName: state.pointName,
+            pointId: state.pointId,
+            carId: state.carId,
             category: state.category,
+            selectedCategory: state.selectedCategory,
             car: state.car,
             steps: state.steps,
             currentStep: state.currentStep,
         }),
+        setOrderStatusId: (state, action) => {
+            state.orderStatusId = action.payload;
+        },
     },
     extraReducers: {
         [fetchOrderById.pending]: (state) => ({
@@ -180,7 +219,7 @@ export const {
     setCategory,
     setCar,
     setCompleteStatus,
-    setColour,
+    setColor,
     setRate,
     setAdditionalOption,
     setDateFrom,
@@ -190,5 +229,6 @@ export const {
     clearOrder,
     clearOrderWithoutCity,
     clearOrderWithoutCar,
+    setOrderStatusId,
 } = slice.actions;
 export default slice.reducer;

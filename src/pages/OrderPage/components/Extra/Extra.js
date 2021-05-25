@@ -9,7 +9,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import {
     setAdditionalOption,
-    setColour,
+    setColor,
     setCompleteStatus,
     setDateFrom,
     setDateTo,
@@ -24,7 +24,7 @@ const Extra = () => {
     const isLoadingRates = useSelector(isLoadingRatesSelector);
     const order = useSelector(orderSelector);
     const rates = useSelector(ratesSelector);
-    const {car, rate, duration, colour} = order;
+    const {car, rate, duration, color} = order;
 
     const defaultCarColor = {
         name: 'Любой',
@@ -76,7 +76,7 @@ const Extra = () => {
     useEffect(() => {
         dispatch(fetchRates());
         if (car?.colors.length === 1) {
-            dispatch(setColour(car.colors[0]));
+            dispatch(setColor(car.colors[0]));
         }
     }, []);
 
@@ -99,13 +99,13 @@ const Extra = () => {
     };
     const ratesOptions = createRatesOptions(rates);
 
-    const changeActiveCarColour = (colourName) => {
-        dispatch(setColour(colourName));
+    const changeActiveCarColor = (colorName) => {
+        dispatch(setColor(colorName));
     };
 
     const changeRate = (rateName) => {
         let activeRate = rates?.find((item) => rateName.includes(item.rateTypeId.name));
-        dispatch(setRate({rateName, id: activeRate.id}));
+        dispatch(setRate({rateName, activeRate}));
     };
 
     useEffect(() => {
@@ -118,8 +118,8 @@ const Extra = () => {
     }, [ratesOptions]);
 
     useEffect(() => {
-        !colour && dispatch(setColour(defaultCarColor.name));
-    }, [colour]);
+        !color && dispatch(setColor(defaultCarColor.name));
+    }, [color]);
 
     if (isLoadingRates) {
         return <Loader />;
@@ -131,10 +131,10 @@ const Extra = () => {
                 <div className="extra-point">
                     <p className="extra-point__title">Цвет</p>
                     <Radio
-                        name="colours"
+                        name="colors"
                         radioOptions={createCarOptions(car)}
-                        activeOption={colour || defaultCarColor.name}
-                        onHandleChange={(colourName) => changeActiveCarColour(colourName)}
+                        activeOption={color || defaultCarColor.name}
+                        onHandleChange={(colorName) => changeActiveCarColor(colorName)}
                         value="name"
                         isHorizontal={true}
                         defaultOption={defaultCarColor}
@@ -144,19 +144,6 @@ const Extra = () => {
                 <div className="extra-point">
                     <p className="extra-point__title">Цвет</p>
                     <p className="extra-point__text">{car?.colors[0]}</p>
-                </div>
-            )}
-            {rates && (
-                <div className="extra-point">
-                    <p className="extra-point__title">Тариф</p>
-                    <Radio
-                        name="rates"
-                        radioOptions={ratesOptions}
-                        activeOption={rate || ratesOptions[0].name}
-                        onHandleChange={(rateName) => changeRate(rateName)}
-                        value="name"
-                        isHorizontal={false}
-                    />
                 </div>
             )}
 
@@ -203,6 +190,20 @@ const Extra = () => {
                     </div>
                 </div>
             </div>
+
+            {rates && (
+                <div className="extra-point">
+                    <p className="extra-point__title">Тариф</p>
+                    <Radio
+                        name="rates"
+                        radioOptions={ratesOptions}
+                        activeOption={rate || ratesOptions[0].name}
+                        onHandleChange={(rateName) => changeRate(rateName)}
+                        value="name"
+                        isHorizontal={false}
+                    />
+                </div>
+            )}
 
             <div className="extra-point">
                 <p className="extra-point__title">Доп услуги</p>

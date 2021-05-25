@@ -67,9 +67,10 @@ const Location = () => {
         }
     };
 
-    const handlePointClick = (point) => {
+    const handlePointClick = (pointOption) => {
+        const point = points?.find((item) => item.address === pointOption.label);
         if (point) {
-            dispatch(setPoint(point));
+            dispatch(setPoint({point, pointOption}));
         } else {
             dispatch(clearOrderWithoutCity());
         }

@@ -11,6 +11,7 @@ function App() {
             </Route>
             <Route exact path="/carsharing/start" component={StartPage} />
             <Route exact path="/carsharing/order" component={OrderPage} />
+            <Route exact path="/carsharing/order/:id" component={OrderPage} />
             <Route render={() => <h2>Page not found</h2>} />
         </Switch>
     );

@@ -17,7 +17,7 @@ const OrderInfo = ({className = null}) => {
         cityName,
         pointName,
         car,
-        colour,
+        color,
         duration,
         dateFrom,
         dateTo,
@@ -30,7 +30,7 @@ const OrderInfo = ({className = null}) => {
 
     useEffect(() => {
         calculatePrice();
-    }, [dateFrom, dateTo, rateId, isFullTank, isNeedChildChair, isRightWheel]);
+    }, [dateFrom, dateTo, rateId?.id, isFullTank, isNeedChildChair, isRightWheel]);
 
     return (
         <div className={classNames('order-info', `${className}`)}>
@@ -51,11 +51,11 @@ const OrderInfo = ({className = null}) => {
                         <div className="point__value">{car.name}</div>
                     </div>
                 )}
-                {colour && (
+                {color && (
                     <div className="order-info__point point">
                         <div className="point__key">Цвет</div>
                         <div className="point__dots"></div>
-                        <div className="point__value">{colour}</div>
+                        <div className="point__value">{color}</div>
                     </div>
                 )}
                 {duration && (

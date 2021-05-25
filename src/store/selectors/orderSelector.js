@@ -7,3 +7,4 @@ export const pointNameSelector = (state) => state.order.pointName;
 export const pointSelector = (state) => state.order.point;
 export const categorySelector = (state) => state.order.category;
 export const carSelector = (state) => state.order.car;
+export const orderStatusIdSelector = (state) => state.order?.fields?.orderStatusId.ref;

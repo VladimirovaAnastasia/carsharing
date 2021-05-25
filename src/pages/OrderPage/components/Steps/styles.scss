@@ -1,3 +1,14 @@
+.order-confirm {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  height: 32px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--color-black);
+}
+
 .steps {
   position: relative;
 
