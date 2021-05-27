@@ -1,15 +1,19 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {fetchCities, fetchCityPoints} from '../thunks/locationThunk';
 
+const initialState = {
+    cities: null,
+    cityPoints: null,
+    isLoading: false,
+    error: null,
+};
+
 export const slice = createSlice({
     name: 'location',
-    initialState: {
-        cities: null,
-        cityPoints: null,
-        isLoading: false,
-        error: null,
+    initialState: initialState,
+    reducers: {
+        clearCityOptions: () => initialState,
     },
-    reducers: {},
     extraReducers: {
         [fetchCities.pending]: (state) => ({
             ...state,
@@ -48,5 +52,5 @@ export const slice = createSlice({
         }),
     },
 });
-
+export const {clearCityOptions} = slice.actions;
 export default slice.reducer;

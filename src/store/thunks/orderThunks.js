@@ -3,6 +3,7 @@ import {orderPost, getOrderById, orderPut} from '../../service/orderService';
 
 export const fetchOrderById = createAsyncThunk('order/fetchOrderById', async (id) => {
     const response = await getOrderById(id);
+    console.log(response.data);
     return response.data;
 });
 

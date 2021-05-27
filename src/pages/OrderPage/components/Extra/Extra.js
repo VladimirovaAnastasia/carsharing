@@ -57,6 +57,10 @@ const Extra = () => {
                 dispatch(setDateFrom(date.getTime()));
             }
         }
+
+        if ((date.getTime() || currentDate) >= order?.dateTo) {
+            dispatch(setDateTo(null));
+        }
     };
 
     const onChangeDateTo = (date) => {
@@ -133,7 +137,7 @@ const Extra = () => {
                     <Radio
                         name="colors"
                         radioOptions={createCarOptions(car)}
-                        activeOption={color || defaultCarColor.name}
+                        activeOption={color}
                         onHandleChange={(colorName) => changeActiveCarColor(colorName)}
                         value="name"
                         isHorizontal={true}

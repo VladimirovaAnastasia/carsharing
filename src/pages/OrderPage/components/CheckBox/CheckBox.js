@@ -16,14 +16,9 @@ const CheckBox = ({name, checkboxOptions, setActiveOption}) => {
                             ['checkbox-option--active']: option.isChecked,
                         })}
                         key={option.id}
+                        onChange={(event) => handleChange(event, option.isChecked)}
                     >
-                        <input
-                            type="checkbox"
-                            name={name}
-                            value={option.id}
-                            checked={option.isChecked}
-                            onChange={(event) => handleChange(event, option.isChecked)}
-                        />
+                        <input type="checkbox" name={name} value={option.id} checked={option.isChecked} />
                         <label>{option.name + option.price + 'р'}</label>
                     </div>
                 ))}

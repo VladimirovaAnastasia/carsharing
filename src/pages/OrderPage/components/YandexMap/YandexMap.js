@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {Map, Placemark, YMaps} from 'react-yandex-maps';
 import pointMapIcon from '../../../../assets/images/placemark-icon.svg';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {cityNameSelector, pointNameSelector} from '../../../../store/selectors/orderSelector';
 import {pointsSelector} from '../../../../store/selectors/locationSelector';
 import './styles.scss';
+import {setPoint} from '../../../../store/reducers/orderReducer';
 
 const mapProperties = {
     iconLayout: 'default#image',
@@ -13,31 +14,14 @@ const mapProperties = {
 };
 
 const YandexMap = () => {
+    const dispatch = useDispatch();
+
     let city = useSelector(cityNameSelector);
     let point = useSelector(pointNameSelector);
     let points = useSelector(pointsSelector);
 
-    const [ymapsInstances, setYmapsInstances] = useState(null);
-    let [zoom, setZoom] = React.useState(10);
-    let [coordinates, setCoordinates] = useState([[55.7522, 37.6156]]);
-    let [center, setCenter] = useState([55.7522, 37.6156]);
-    const mapState = React.useMemo(() => ({center: center, zoom}), [zoom, center]);
-
-    const init = (ymaps) => {
-        setYmapsInstances(ymaps);
-    };
-
-    const setPoints = async (points) => {
-        let newCoords = [];
-        for (const item of points) {
-            let newCoord = await getCoordinates(city + ',' + item.address);
-            newCoords.push(newCoord);
-        }
-        setCoordinates(newCoords);
-    };
-
     const changeMapCenter = async (address, isCity = false) => {
-        isCity ? setZoom(10) : setZoom(15);
+        isCity ? setZoom(12) : setZoom(16);
         const coords = await getCoordinates(address);
         setCenter(coords);
     };
@@ -50,13 +34,32 @@ const YandexMap = () => {
         }
     };
 
+    const [ymapsInstances, setYmapsInstances] = useState(null);
+    let [zoom, setZoom] = React.useState(10);
+    let [coordinates, setCoordinates] = useState(null);
+    let [center, setCenter] = useState([55.7522, 37.6156]);
+    const mapState = React.useMemo(() => ({center: center, zoom}), [zoom, center]);
+
+    const init = (ymaps) => {
+        setYmapsInstances(ymaps);
+    };
+
+    const getPoints = async (points) => {
+        let newCoords = [];
+        for (const item of points) {
+            let newCoord = await getCoordinates(city + ',' + item.address);
+            newCoords.push({newCoord: newCoord, point: item});
+        }
+        setCoordinates(newCoords);
+    };
+
     useEffect(() => {
         !point && city && changeMapCenter(city, true);
         point && changeMapCenter(city + ',' + point);
     }, [point]);
 
     useEffect(() => {
-        points && setPoints(points);
+        points && getPoints(points);
         city && changeMapCenter(city, true);
     }, [points]);
 
@@ -72,9 +75,25 @@ const YandexMap = () => {
                     }}
                 >
                     <Map state={mapState} className="map-inner" onLoad={(ymaps) => init(ymaps)}>
-                        {coordinates.map((coordinate, index) => (
-                            <Placemark key={index} geometry={coordinate} options={mapProperties} />
-                        ))}
+                        {coordinates &&
+                            coordinates?.map((coordinate, index) => (
+                                <Placemark
+                                    key={index}
+                                    geometry={coordinate.newCoord}
+                                    options={mapProperties}
+                                    onClick={() => {
+                                        dispatch(
+                                            setPoint({
+                                                point: coordinate.point,
+                                                pointOption: {
+                                                    value: coordinate.point.id,
+                                                    label: coordinate.point.address,
+                                                },
+                                            })
+                                        );
+                                    }}
+                                />
+                            ))}
                     </Map>
                 </YMaps>
             </div>

@@ -8,9 +8,9 @@
   margin-bottom: 8px;
 
   input[type='checkbox'] {
-    position: relative;
+    position: absolute;
+    width: 200px;
     margin: 0 8px 0 0;
-    width: 12px;
     height: 12px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -25,8 +25,8 @@
   input[type='checkbox']::before {
     content: '';
     position: absolute;
-    top: 8px;
-    left: 50%;
+    top: 10px;
+    left: 8px;
     width: 10px;
     height: 10px;
     transform: translate(-50%, -50%);
@@ -37,8 +37,8 @@
   input[type='checkbox']:checked::before {
     content: '';
     position: absolute;
-    top: 8px;
-    left: 50%;
+    top: 10px;
+    left: 8px;
     width: 10px;
     height: 10px;
 
@@ -50,8 +50,8 @@
   input[type='checkbox']:checked::after {
     content: "";
     position: absolute;
-    top: 50%;
-    left: 70%;
+    top: 10px;
+    left: 10px;
     width: 12px;
     height: 12px;
     border: none;
@@ -67,7 +67,7 @@
     font-weight: 300;
     font-size: 14px;
     line-height: 16px;
-    margin-right: 16px;
+    margin-left: 20px;
     color: var(--color-dark-grey);
 
     &:hover {

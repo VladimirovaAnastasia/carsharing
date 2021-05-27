@@ -11,8 +11,9 @@ const RadioButtons = ({
     isHorizontal,
     defaultOption = null,
 }) => {
-    const handleChange = (event) => {
-        onHandleChange(event.target.value);
+    const handleChange = (value) => {
+        console.log(value);
+        onHandleChange(value);
     };
 
     return (
@@ -23,13 +24,13 @@ const RadioButtons = ({
                         ['radio-option--active']: activeOption === defaultOption[value],
                     })}
                     key={defaultOption.id}
+                    onClick={() => handleChange(defaultOption[value])}
                 >
                     <input
                         type="radio"
                         name={name}
                         value={defaultOption[value]}
                         defaultChecked={activeOption === defaultOption[value]}
-                        onChange={(event) => handleChange(event)}
                     />
                     <label>{defaultOption[value]}</label>
                 </div>
@@ -41,13 +42,13 @@ const RadioButtons = ({
                             ['radio-option--active']: activeOption === option[value],
                         })}
                         key={option.id}
+                        onClick={() => handleChange(option[value])}
                     >
                         <input
                             type="radio"
                             name={name}
                             value={option[value]}
                             defaultChecked={activeOption === option[value]}
-                            onChange={(event) => handleChange(event)}
                         />
                         <label>{option[value]}</label>
                     </div>

@@ -13,6 +13,7 @@ import {fetchCities, fetchCityPoints} from '../../../../store/thunks/locationThu
 import {citiesSelector, pointsSelector} from '../../../../store/selectors/locationSelector';
 import {citySelector, pointSelector} from '../../../../store/selectors/orderSelector';
 import './styles.scss';
+import {clearCityOptions} from '../../../../store/reducers/locationReducer';
 
 const createOptions = (mas, key_1, key_2) => {
     return mas.map((item) => ({
@@ -62,13 +63,17 @@ const Location = () => {
         if (city) {
             dispatch(setCity(city));
             dispatch(fetchCityPoints(city.value));
+            setCurrentPoint(null);
         } else {
             dispatch(clearOrder());
+            dispatch(clearCityOptions());
+            setPointOptions(null);
         }
     };
 
     const handlePointClick = (pointOption) => {
-        const point = points?.find((item) => item.address === pointOption.label);
+        const point = points?.find((item) => item.address === pointOption?.label);
+        console.log(point, pointOption);
         if (point) {
             dispatch(setPoint({point, pointOption}));
         } else {

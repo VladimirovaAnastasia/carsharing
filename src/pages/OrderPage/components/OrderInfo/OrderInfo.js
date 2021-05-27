@@ -1,36 +1,30 @@
 import React, {useEffect} from 'react';
 import {useSelector} from 'react-redux';
-import {orderSelector} from '../../../../store/selectors/orderSelector';
+import {useRouteMatch} from 'react-router-dom';
+import {orderInfoSelector, orderSelector} from '../../../../store/selectors/orderSelector';
 import usePriceCalculator from '../../../../hooks/usePriceCalculator';
-import {ratesSelector} from '../../../../store/selectors/rateSelector';
 import {StatusButton} from '../StatusButton';
 import classNames from 'classnames';
 import './styles.scss';
 
 const OrderInfo = ({className = null}) => {
+    const match = useRouteMatch();
+
     const {calculatePrice} = usePriceCalculator();
 
-    const order = useSelector(orderSelector);
-    const rates = useSelector(ratesSelector);
-    const rate = rates?.find((item) => order.rate?.includes(item.rateTypeId.name));
-    const {
-        cityName,
-        pointName,
-        car,
-        color,
-        duration,
-        dateFrom,
-        dateTo,
-        rateId,
-        isFullTank,
-        isNeedChildChair,
-        isRightWheel,
-        price,
-    } = order;
+    const order = match.params?.id ? useSelector(orderInfoSelector) : useSelector(orderSelector);
+    const duration = order?.duration;
 
     useEffect(() => {
         calculatePrice();
-    }, [dateFrom, dateTo, rateId?.id, isFullTank, isNeedChildChair, isRightWheel]);
+    }, [
+        order?.dateFrom,
+        order?.dateTo,
+        order?.rateId?.id,
+        order?.isFullTank,
+        order?.isNeedChildChair,
+        order?.isRightWheel,
+    ]);
 
     return (
         <div className={classNames('order-info', `${className}`)}>
@@ -40,22 +34,22 @@ const OrderInfo = ({className = null}) => {
                     <div className="point__key">Пункт выдачи</div>
                     <div className="point__dots"></div>
                     <div className="point__value">
-                        <span>{cityName ? cityName + ',' : 'Выберите город'}</span>
-                        <span>{pointName ? pointName : 'Выберите пункт'}</span>
+                        <span>{order?.cityId?.name ? order.cityId.name + ',' : 'Выберите город'}</span>
+                        <span>{order?.pointId?.address ? order.pointId.address : 'Выберите пункт'}</span>
                     </div>
                 </div>
-                {car && (
+                {order?.carId?.name && (
                     <div className="order-info__point point">
                         <div className="point__key">Модель</div>
                         <div className="point__dots"></div>
-                        <div className="point__value">{car.name}</div>
+                        <div className="point__value">{order?.carId?.name}</div>
                     </div>
                 )}
-                {color && (
+                {order?.color && (
                     <div className="order-info__point point">
                         <div className="point__key">Цвет</div>
                         <div className="point__dots"></div>
-                        <div className="point__value">{color}</div>
+                        <div className="point__value">{order.color}</div>
                     </div>
                 )}
                 {duration && (
@@ -65,28 +59,28 @@ const OrderInfo = ({className = null}) => {
                         <div className="point__value">{duration}</div>
                     </div>
                 )}
-                {rate && (
+                {order?.rateId?.name && (
                     <div className="order-info__point point">
                         <div className="point__key">Тариф</div>
                         <div className="point__dots"></div>
-                        <div className="point__value">{rate.rateTypeId.name}</div>
+                        <div className="point__value">{order.rateId.name}</div>
                     </div>
                 )}
-                {isFullTank && (
+                {order?.isFullTank && (
                     <div className="order-info__point point">
                         <div className="point__key">Полный бак</div>
                         <div className="point__dots"></div>
                         <div className="point__value">Да</div>
                     </div>
                 )}
-                {isNeedChildChair && (
+                {order?.isNeedChildChair && (
                     <div className="order-info__point point">
                         <div className="point__key">Детское кресло</div>
                         <div className="point__dots"></div>
                         <div className="point__value">Да</div>
                     </div>
                 )}
-                {isRightWheel && (
+                {order?.isRightWheel && (
                     <div className="order-info__point point">
                         <div className="point__key">Правый руль</div>
                         <div className="point__dots"></div>
@@ -94,10 +88,10 @@ const OrderInfo = ({className = null}) => {
                     </div>
                 )}
             </div>
-            {!!price && (
+            {!!order?.price && (
                 <div className="order-info__result">
                     <span>Цена: </span>
-                    {price + '₽'}
+                    {order?.price + '₽'}
                 </div>
             )}
             <StatusButton />

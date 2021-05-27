@@ -5,6 +5,7 @@
 
 .extra-point {
   margin-bottom: 32px;
+  max-width: 300px;
 
   &__title {
     font-style: normal;
@@ -84,4 +85,8 @@
 
 .react-datepicker__input-container input:disabled {
   background: transparent;
+}
+
+.react-datepicker-popper {
+  z-index: 3;
 }
