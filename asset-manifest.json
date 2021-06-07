@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/carsharing/static/css/main.d5bd2d69.chunk.css",
-    "main.js": "/carsharing/static/js/main.7dcd8e0c.chunk.js",
-    "main.js.map": "/carsharing/static/js/main.7dcd8e0c.chunk.js.map",
+    "main.css": "/carsharing/static/css/main.21b23820.chunk.css",
+    "main.js": "/carsharing/static/js/main.b26bb652.chunk.js",
+    "main.js.map": "/carsharing/static/js/main.b26bb652.chunk.js.map",
     "runtime-main.js": "/carsharing/static/js/runtime-main.6179c022.js",
     "runtime-main.js.map": "/carsharing/static/js/runtime-main.6179c022.js.map",
-    "static/css/2.1ce465a8.chunk.css": "/carsharing/static/css/2.1ce465a8.chunk.css",
-    "static/js/2.6dfa1a93.chunk.js": "/carsharing/static/js/2.6dfa1a93.chunk.js",
-    "static/js/2.6dfa1a93.chunk.js.map": "/carsharing/static/js/2.6dfa1a93.chunk.js.map",
+    "static/css/2.bfa2f686.chunk.css": "/carsharing/static/css/2.bfa2f686.chunk.css",
+    "static/js/2.641dd41e.chunk.js": "/carsharing/static/js/2.641dd41e.chunk.js",
+    "static/js/2.641dd41e.chunk.js.map": "/carsharing/static/js/2.641dd41e.chunk.js.map",
     "index.html": "/carsharing/index.html",
-    "static/css/2.1ce465a8.chunk.css.map": "/carsharing/static/css/2.1ce465a8.chunk.css.map",
-    "static/css/main.d5bd2d69.chunk.css.map": "/carsharing/static/css/main.d5bd2d69.chunk.css.map",
-    "static/js/2.6dfa1a93.chunk.js.LICENSE.txt": "/carsharing/static/js/2.6dfa1a93.chunk.js.LICENSE.txt",
+    "static/css/2.bfa2f686.chunk.css.map": "/carsharing/static/css/2.bfa2f686.chunk.css.map",
+    "static/css/main.21b23820.chunk.css.map": "/carsharing/static/css/main.21b23820.chunk.css.map",
+    "static/js/2.641dd41e.chunk.js.LICENSE.txt": "/carsharing/static/js/2.641dd41e.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/carsharing/static/media/Roboto-Regular.a8d6ac03.ttf",
     "static/media/styles.scss": "/carsharing/static/media/telegram-icon.e8137bbe.svg",
     "static/media/empty.22243d74.jpg": "/carsharing/static/media/empty.22243d74.jpg",
@@ -25,9 +25,9 @@
   },
   "entrypoints": [
     "static/js/runtime-main.6179c022.js",
-    "static/css/2.1ce465a8.chunk.css",
-    "static/js/2.6dfa1a93.chunk.js",
-    "static/css/main.d5bd2d69.chunk.css",
-    "static/js/main.7dcd8e0c.chunk.js"
+    "static/css/2.bfa2f686.chunk.css",
+    "static/js/2.641dd41e.chunk.js",
+    "static/css/main.21b23820.chunk.css",
+    "static/js/main.b26bb652.chunk.js"
   ]
 }
