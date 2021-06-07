@@ -6,13 +6,14 @@ import {OrderPage} from './pages/OrderPage';
 function App() {
     return (
         <Switch>
+            <Route path="/404" render={() => <h1>404 Not Found</h1>} />
             <Route exact path="/carsharing">
                 <Redirect to="/carsharing/start" />
             </Route>
-            <Route exact path="/carsharing/start" component={StartPage} />
-            <Route exact path="/carsharing/order" component={OrderPage} />
-            <Route exact path="/carsharing/order/:id" component={OrderPage} />
-            <Route render={() => <h2>Page not found</h2>} />
+            <Route path="/carsharing/start" component={StartPage} />
+            <Route path="/carsharing/order" component={OrderPage} />
+            <Route path="/carsharing/order/:id" component={OrderPage} />
+            <Route render={() => <Redirect to="/404" />} />
         </Switch>
     );
 }

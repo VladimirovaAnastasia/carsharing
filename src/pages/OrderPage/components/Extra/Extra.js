@@ -80,7 +80,7 @@ const Extra = () => {
     useEffect(() => {
         dispatch(fetchRates());
         if (car?.colors.length === 1) {
-            dispatch(setColor(car.colors[0]));
+            dispatch(setColor(car?.colors[0][0].toUpperCase() + car?.colors[0].slice(1)));
         }
     }, []);
 
@@ -121,10 +121,6 @@ const Extra = () => {
         !rate && ratesOptions && changeRate(ratesOptions[0]?.name);
     }, [ratesOptions]);
 
-    useEffect(() => {
-        !color && dispatch(setColor(defaultCarColor.name));
-    }, [color]);
-
     if (isLoadingRates) {
         return <Loader />;
     }
@@ -147,7 +143,7 @@ const Extra = () => {
             ) : (
                 <div className="extra-point">
                     <p className="extra-point__title">Цвет</p>
-                    <p className="extra-point__text">{car?.colors[0]}</p>
+                    <p className="extra-point__text">{car?.colors[0][0].toUpperCase() + car?.colors[0].slice(1)}</p>
                 </div>
             )}
 

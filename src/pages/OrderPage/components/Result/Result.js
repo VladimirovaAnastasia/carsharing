@@ -11,7 +11,7 @@ const Result = () => {
     const match = useRouteMatch();
 
     const order = match.params?.id ? useSelector(orderInfoSelector) : useSelector(orderSelector);
-    const carImg = order?.carId?.thumbnail?.path;
+    const carImg = order?.car?.thumbnail?.path;
 
     useEffect(() => {
         dispatch(setCompleteStatus({id: 3, status: true}));
@@ -29,18 +29,18 @@ const Result = () => {
                 {order?.currentStep > 4 ||
                     (!order?.currentStep && <h2 className="result-description__title">Ваш заказ подтвержден</h2>)}
                 <h3 className="result-description__model">{order?.carId?.name}</h3>
-                {order?.carId?.number && (
+                {order?.car?.number && (
                     <div className="result-description__car-number">
-                        {order?.carId?.number
+                        {order?.car?.number
                             .toUpperCase()
                             .replace(/([^0-9])+(\d+)+([^0-9])/g, '$1,$2,$3')
                             .replaceAll(',', ' ')}
                     </div>
                 )}
-                {(order?.isFullTank || !!order?.carId?.tank) && (
+                {(order?.isFullTank || !!order?.car?.tank) && (
                     <div className="result-description__point">
                         <p className="point-title">Топливо </p>
-                        <p>{order?.isFullTank ? ' 100%' : order?.carId?.tank + '%'}</p>
+                        <p>{order?.isFullTank ? ' 100%' : order?.car?.tank + '%'}</p>
                     </div>
                 )}
                 <div className="result-description__point">

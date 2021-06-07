@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import classNames from 'classnames';
 import './styles.scss';
 
@@ -12,7 +12,6 @@ const RadioButtons = ({
     defaultOption = null,
 }) => {
     const handleChange = (value) => {
-        console.log(value);
         onHandleChange(value);
     };
 
@@ -21,7 +20,7 @@ const RadioButtons = ({
             {defaultOption && (
                 <div
                     className={classNames('radio-option', {
-                        ['radio-option--active']: activeOption === defaultOption[value],
+                        ['radio-option--active']: !activeOption || activeOption === defaultOption[value],
                     })}
                     key={defaultOption.id}
                     onClick={() => handleChange(defaultOption[value])}
@@ -30,7 +29,7 @@ const RadioButtons = ({
                         type="radio"
                         name={name}
                         value={defaultOption[value]}
-                        defaultChecked={activeOption === defaultOption[value]}
+                        defaultChecked={!activeOption || activeOption === defaultOption[value]}
                     />
                     <label>{defaultOption[value]}</label>
                 </div>

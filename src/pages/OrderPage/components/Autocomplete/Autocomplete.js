@@ -2,7 +2,7 @@ import React from 'react';
 import Select from 'react-select';
 import './styles.scss';
 
-const Autocomplete = ({value, options, placeholder, handleClick}) => {
+const Autocomplete = ({value, options, placeholder, handleClick, isDisabled = false}) => {
     const colourStyles = {
         control: (styles) => ({
             ...styles,
@@ -78,6 +78,7 @@ const Autocomplete = ({value, options, placeholder, handleClick}) => {
             isClearable
             isSearchable
             placeholder={placeholder}
+            isDisabled={isDisabled}
             onChange={(el) => handleClick(el)}
             noOptionsMessage={() => 'Данные отсутствуют'}
         />

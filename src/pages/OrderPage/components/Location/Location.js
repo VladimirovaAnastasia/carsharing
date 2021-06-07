@@ -73,7 +73,6 @@ const Location = () => {
 
     const handlePointClick = (pointOption) => {
         const point = points?.find((item) => item.address === pointOption?.label);
-        console.log(point, pointOption);
         if (point) {
             dispatch(setPoint({point, pointOption}));
         } else {
@@ -101,6 +100,7 @@ const Location = () => {
                         value={currentPoint}
                         options={pointOptions}
                         placeholder="Начните вводить пункт ..."
+                        isDisabled={!currentCity}
                         handleClick={handlePointClick}
                     />
                 )}
