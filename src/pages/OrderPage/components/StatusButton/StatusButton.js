@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {useRouteMatch, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import BUTTONS from './const';
 import {orderSelector} from '../../../../store/selectors/orderSelector';
 import {clearOrder, setActiveStep, setOrderStatusId} from '../../../../store/reducers/orderReducer';
@@ -13,7 +13,6 @@ import {fetchOrderStatus} from '../../../../store/thunks/orderStatusThunks';
 const StatusButton = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const match = useRouteMatch();
 
     const orderStatuses = useSelector(orderStatusSelector);
     const order = useSelector(orderSelector);
@@ -35,20 +34,18 @@ const StatusButton = () => {
 
     const handleClick = () => {
         if (currentStep === 5) {
+            const cancelledOrder = {
+                ...order.data,
+                orderStatusId: orderStatuses.find((item) => item.name === 'cancelled'),
+            };
+            history.push('/order');
             dispatch(setActiveStep(0));
+            dispatch(putOrder(cancelledOrder));
             dispatch(clearOrder());
         }
         if (currentStep === 3) {
             const updatedOrderStatus = orderStatuses.find((item) => item.name === 'new');
             dispatch(setOrderStatusId(updatedOrderStatus));
-        }
-        if (currentStep === 6) {
-            const cancelledOrder = {
-                ...order,
-                orderStatusId: orderStatuses.find((item) => item.name === 'cancelled'),
-            };
-            dispatch(putOrder(cancelledOrder));
-            history.replace('/order');
         }
         steps[currentStep].isComplete && dispatch(setActiveStep(currentStep + 1));
     };

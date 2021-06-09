@@ -73,6 +73,7 @@ const initialState = {
     price: null,
     isLoading: false,
     error: null,
+    data: null,
 };
 
 export const slice = createSlice({

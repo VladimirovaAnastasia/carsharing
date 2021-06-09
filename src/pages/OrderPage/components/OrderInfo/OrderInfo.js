@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useSelector} from 'react-redux';
-import {useRouteMatch} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import {orderInfoSelector, orderSelector} from '../../../../store/selectors/orderSelector';
 import usePriceCalculator from '../../../../hooks/usePriceCalculator';
 import {StatusButton} from '../StatusButton';
@@ -8,12 +8,13 @@ import classNames from 'classnames';
 import './styles.scss';
 
 const OrderInfo = ({className = null}) => {
-    const match = useRouteMatch();
+    const history = useHistory();
 
     const {calculatePrice} = usePriceCalculator();
 
-    const order = match.params?.id ? useSelector(orderInfoSelector) : useSelector(orderSelector);
-    const duration = order?.duration;
+    const order =
+        history.location.pathname.split('/').length > 2 ? useSelector(orderInfoSelector) : useSelector(orderSelector);
+    const duration = useSelector(orderSelector).duration;
 
     useEffect(() => {
         calculatePrice();
@@ -59,11 +60,11 @@ const OrderInfo = ({className = null}) => {
                         <div className="point__value">{duration}</div>
                     </div>
                 )}
-                {order?.rateId?.name && (
+                {(order?.rateId?.name || order?.rateId?.rateTypeId?.name) && (
                     <div className="order-info__point point">
                         <div className="point__key">Тариф</div>
                         <div className="point__dots"></div>
-                        <div className="point__value">{order.rateId.name}</div>
+                        <div className="point__value">{order.rateId.name || order?.rateId?.rateTypeId?.name}</div>
                     </div>
                 )}
                 {order?.isFullTank && (

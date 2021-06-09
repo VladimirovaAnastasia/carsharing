@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {useHistory, useRouteMatch} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import STEPS from './const';
 import {setActiveStep} from '../../../../store/reducers/orderReducer';
 import {stepsSelector, currentStepSelector, orderStatusIdSelector} from '../../../../store/selectors/orderSelector';
@@ -11,7 +11,6 @@ import {fetchOrderById} from '../../../../store/thunks/orderThunks';
 const Steps = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const match = useRouteMatch();
     const stepsInfo = useSelector(stepsSelector);
     const currentStep = useSelector(currentStepSelector);
     const handleClick = (index) => {
@@ -20,8 +19,9 @@ const Steps = () => {
     const orderStatusId = useSelector(orderStatusIdSelector);
 
     useEffect(() => {
-        !!match.params?.id && dispatch(fetchOrderById(match.params.id)) && dispatch(setActiveStep(5));
-    }, [match.params?.id]);
+        const path = history.location.pathname.split('/');
+        path.length > 2 && dispatch(fetchOrderById(path.slice(-1)[0])) && dispatch(setActiveStep(5));
+    }, [history.location.pathname]);
 
     useEffect(() => {
         orderStatusId && history.push(`/order/${orderStatusId}`);
