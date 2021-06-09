@@ -48,7 +48,7 @@ const StatusButton = () => {
                 orderStatusId: orderStatuses.find((item) => item.name === 'cancelled'),
             };
             dispatch(putOrder(cancelledOrder));
-            history.replace('/carsharing/order');
+            history.replace('/order');
         }
         steps[currentStep].isComplete && dispatch(setActiveStep(currentStep + 1));
     };

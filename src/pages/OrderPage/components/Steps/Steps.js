@@ -24,7 +24,7 @@ const Steps = () => {
     }, [match.params?.id]);
 
     useEffect(() => {
-        orderStatusId && history.push(`/carsharing/order/${orderStatusId}`);
+        orderStatusId && history.push(`/order/${orderStatusId}`);
     }, [orderStatusId]);
 
     return (
