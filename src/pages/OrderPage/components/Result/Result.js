@@ -9,8 +9,7 @@ import {fetchOrderStatus} from '../../../../store/thunks/orderStatusThunks';
 const Result = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const order =
-        history.location.pathname.split('/').length > 2 ? useSelector(orderInfoSelector) : useSelector(orderSelector);
+    const order = history.location.pathname.split('/')[2] ? useSelector(orderInfoSelector) : useSelector(orderSelector);
     const carImg = order?.car?.thumbnail?.path || order?.carId?.thumbnail?.path;
 
     useEffect(() => {

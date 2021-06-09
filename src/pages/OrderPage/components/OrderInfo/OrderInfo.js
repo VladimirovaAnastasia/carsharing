@@ -12,8 +12,7 @@ const OrderInfo = ({className = null}) => {
 
     const {calculatePrice} = usePriceCalculator();
 
-    const order =
-        history.location.pathname.split('/').length > 2 ? useSelector(orderInfoSelector) : useSelector(orderSelector);
+    const order = history.location.pathname.split('/')[2] ? useSelector(orderInfoSelector) : useSelector(orderSelector);
     const duration = useSelector(orderSelector).duration;
 
     useEffect(() => {

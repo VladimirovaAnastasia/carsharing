@@ -5,7 +5,7 @@ export async function getOrderById(id) {
 }
 
 export async function orderPut(body) {
-    return api.put(`db/order?data_id=${body.id}`);
+    return api.put(`db/order/${body.id}`, body);
 }
 
 export async function orderPost(body) {
