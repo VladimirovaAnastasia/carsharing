@@ -81,6 +81,8 @@ const Extra = () => {
         dispatch(fetchRates());
         if (car?.colors.length === 1) {
             dispatch(setColor(car?.colors[0][0].toUpperCase() + car?.colors[0].slice(1)));
+        } else if (!color) {
+            dispatch(setColor('Любой'));
         }
     }, []);
 
