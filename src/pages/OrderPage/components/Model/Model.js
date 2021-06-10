@@ -31,10 +31,6 @@ const Model = () => {
     }, []);
 
     useEffect(() => {
-        dispatch(fetchCars());
-    }, [categories]);
-
-    useEffect(() => {
         if (category) {
             dispatch(fetchCarsByCategory(category.id));
         } else {
