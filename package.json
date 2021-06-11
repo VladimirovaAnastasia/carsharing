@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^6.1.2",
     "@reduxjs/toolkit": "^1.5.1",
     "axios": "^0.21.1",
     "classnames": "^2.3.1",
@@ -20,12 +21,11 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start --config craco.config.js",
+    "build": "craco build",
     "eject": "react-scripts eject",
     "lint": "node_modules/.bin/eslint src/ --fix",
-    "predeploy": "npm run build",
+    "predeploy": "craco build",
     "deploy": "gh-pages -d build"
   },
   "browserslist": {

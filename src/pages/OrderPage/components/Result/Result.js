@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
-import {orderInfoSelector, orderSelector} from '../../../../store/selectors/orderSelector';
-import {setCompleteStatus} from '../../../../store/reducers/orderReducer';
+import {orderInfoSelector, orderSelector} from '@/store/selectors/orderSelector';
+import {setCompleteStatus} from '@/store/reducers/orderReducer';
 import './styles.scss';
-import {fetchOrderStatus} from '../../../../store/thunks/orderStatusThunks';
+import {fetchOrderStatus} from '@/store/thunks/orderStatusThunks';
+import formatCarNumber from '@/utils/formatCarNumber';
 
 const Result = () => {
     const dispatch = useDispatch();
@@ -30,10 +31,7 @@ const Result = () => {
                 <h3 className="result-description__model">{order?.carId?.name}</h3>
                 {(order?.car?.number || order?.carId?.number) && (
                     <div className="result-description__car-number">
-                        {(order?.car?.number || order?.carId?.number)
-                            .toUpperCase()
-                            .replace(/([^0-9])+(\d+)+([^0-9])/g, '$1,$2,$3')
-                            .replaceAll(',', ' ')}
+                        {formatCarNumber(order?.car?.number || order?.carId?.number)}
                     </div>
                 )}
                 {(order?.isFullTank || !!order?.car?.tank || !!order?.carId?.tank) && (

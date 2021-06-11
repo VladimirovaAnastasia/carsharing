@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
-import {orderInfoSelector, orderSelector} from '../../../../store/selectors/orderSelector';
-import usePriceCalculator from '../../../../hooks/usePriceCalculator';
+import {orderInfoSelector, orderSelector} from '@/store/selectors/orderSelector';
+import usePriceCalculator from '@/hooks/usePriceCalculator';
 import {StatusButton} from '../StatusButton';
 import classNames from 'classnames';
 import './styles.scss';

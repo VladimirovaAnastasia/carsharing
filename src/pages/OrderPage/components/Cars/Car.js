@@ -1,14 +1,9 @@
 import React, {useState} from 'react';
-import {useDispatch} from 'react-redux';
-
-import empty from '../../../../assets/images/empty.jpg';
-
+import empty from '@/assets/images/empty.jpg';
 import classNames from 'classnames';
 import './styles.scss';
 
 const Car = ({car, isActive, changeActiveCar}) => {
-    const dispatch = useDispatch();
-
     const [isImgError, setIsImgError] = useState(false);
 
     const hangleOnLoadImgError = (event) => {

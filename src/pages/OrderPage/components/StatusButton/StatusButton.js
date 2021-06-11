@@ -2,13 +2,13 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import BUTTONS from './const';
-import {orderSelector} from '../../../../store/selectors/orderSelector';
-import {clearOrder, setActiveStep, setOrderStatusId} from '../../../../store/reducers/orderReducer';
+import {orderSelector} from '@/store/selectors/orderSelector';
+import {clearOrder, setActiveStep, setOrderStatusId} from '@/store/reducers/orderReducer';
 import classNames from 'classnames';
 import './styles.scss';
-import {orderStatusSelector} from '../../../../store/selectors/orderStatusSelector';
-import {putOrder} from '../../../../store/thunks/orderThunks';
-import {fetchOrderStatus} from '../../../../store/thunks/orderStatusThunks';
+import {orderStatusSelector} from '@/store/selectors/orderStatusSelector';
+import {putOrder} from '@/store/thunks/orderThunks';
+import {fetchOrderStatus} from '@/store/thunks/orderStatusThunks';
 
 const StatusButton = () => {
     const dispatch = useDispatch();

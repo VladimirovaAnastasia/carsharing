@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Radio} from '../Radio';
-import {fetchRates} from '../../../../store/thunks/rateThunks';
-import {isLoadingRatesSelector, ratesSelector} from '../../../../store/selectors/rateSelector';
-import {orderSelector} from '../../../../store/selectors/orderSelector';
+import {fetchRates} from '@/store/thunks/rateThunks';
+import {isLoadingRatesSelector, ratesSelector} from '@/store/selectors/rateSelector';
+import {orderSelector} from '@/store/selectors/orderSelector';
 import {CheckBox} from '../CheckBox';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -14,9 +14,10 @@ import {
     setDateFrom,
     setDateTo,
     setRate,
-} from '../../../../store/reducers/orderReducer';
-import {Loader} from '../../../../components/Loader';
+} from '@/store/reducers/orderReducer';
+import {Loader} from '@/components/Loader';
 import './styles.scss';
+import UpFirstLetter from '@/utils/UpFirstLetter';
 
 const Extra = () => {
     const dispatch = useDispatch();
@@ -80,7 +81,7 @@ const Extra = () => {
     useEffect(() => {
         dispatch(fetchRates());
         if (car?.colors.length === 1) {
-            dispatch(setColor(car?.colors[0][0].toUpperCase() + car?.colors[0].slice(1)));
+            dispatch(setColor(UpFirstLetter(car?.colors[0])));
         } else if (!color) {
             dispatch(setColor('Любой'));
         }
@@ -89,7 +90,7 @@ const Extra = () => {
     const createCarOptions = (car) => {
         return car.colors?.map((item, index) => {
             return {
-                name: item[0].toUpperCase() + item.slice(1),
+                name: UpFirstLetter(item),
                 id: Date.now() + index,
             };
         });
@@ -145,7 +146,7 @@ const Extra = () => {
             ) : (
                 <div className="extra-point">
                     <p className="extra-point__title">Цвет</p>
-                    <p className="extra-point__text">{car?.colors[0][0].toUpperCase() + car?.colors[0].slice(1)}</p>
+                    <p className="extra-point__text">{UpFirstLetter(car?.colors[0])}</p>
                 </div>
             )}
 

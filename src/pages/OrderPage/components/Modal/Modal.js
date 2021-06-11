@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {setActiveStep} from '../../../../store/reducers/orderReducer';
-import {currentStepSelector, orderSelector} from '../../../../store/selectors/orderSelector';
-import {postOrder} from '../../../../store/thunks/orderThunks';
+import {setActiveStep} from '@/store/reducers/orderReducer';
+import {currentStepSelector, orderSelector} from '@/store/selectors/orderSelector';
+import {postOrder} from '@/store/thunks/orderThunks';
 
 import './styles.scss';
 

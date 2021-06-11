@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
-import {Header} from '../../../../components/Header';
+import {Header} from '@/components/Header';
 import {Steps} from '../Steps';
 import {StepsContainer} from '../StepsContainer';
 import {OrderInfo} from '../OrderInfo';
-
-import './styles.scss';
-import {ReactComponent as ShoppingImg} from '../../../../assets/images/information.svg';
+import {ReactComponent as ShoppingImg} from '@/assets/images/information.svg';
 import {StatusButton} from '../StatusButton';
+import './styles.scss';
 
 const Main = () => {
     const [isHiddenOrderInfo, setHiddenOrderInfo] = useState(true);

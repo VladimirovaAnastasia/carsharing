@@ -1,8 +1,8 @@
 import React from 'react';
 import Car from './Car';
 import {useDispatch, useSelector} from 'react-redux';
-import {carSelector} from '../../../../store/selectors/orderSelector';
-import {clearOrderWithoutCar, setCar} from '../../../../store/reducers/orderReducer';
+import {carSelector} from '@/store/selectors/orderSelector';
+import {clearOrderWithoutCar, setCar} from '@/store/reducers/orderReducer';
 import './styles.scss';
 
 const Cars = ({cars}) => {

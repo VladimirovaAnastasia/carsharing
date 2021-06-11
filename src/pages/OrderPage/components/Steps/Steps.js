@@ -2,16 +2,16 @@ import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import STEPS from './const';
-import {clearOrder, setActiveStep} from '../../../../store/reducers/orderReducer';
+import {clearOrder, setActiveStep} from '@/store/reducers/orderReducer';
 import {
     stepsSelector,
     currentStepSelector,
     orderStatusIdSelector,
     orderInfoSelector,
-} from '../../../../store/selectors/orderSelector';
+} from '@/store/selectors/orderSelector';
 import classNames from 'classnames';
 import './styles.scss';
-import {fetchOrderById} from '../../../../store/thunks/orderThunks';
+import {fetchOrderById} from '@/store/thunks/orderThunks';
 
 const Steps = () => {
     const dispatch = useDispatch();

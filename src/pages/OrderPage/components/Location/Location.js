@@ -2,18 +2,12 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Autocomplete} from '../Autocomplete';
 import {Map} from '../YandexMap';
-import {
-    setCity,
-    setPoint,
-    setCompleteStatus,
-    clearOrder,
-    clearOrderWithoutCity,
-} from '../../../../store/reducers/orderReducer';
-import {fetchCities, fetchCityPoints} from '../../../../store/thunks/locationThunk';
-import {citiesSelector, pointsSelector} from '../../../../store/selectors/locationSelector';
-import {citySelector, pointSelector} from '../../../../store/selectors/orderSelector';
+import {setCity, setPoint, setCompleteStatus, clearOrder, clearOrderWithoutCity} from '@/store/reducers/orderReducer';
+import {fetchCities, fetchCityPoints} from '@/store/thunks/locationThunk';
+import {citiesSelector, pointsSelector} from '@/store/selectors/locationSelector';
+import {citySelector, pointSelector} from '@/store/selectors/orderSelector';
 import './styles.scss';
-import {clearCityOptions} from '../../../../store/reducers/locationReducer';
+import {clearCityOptions} from '@/store/reducers/locationReducer';
 
 const createOptions = (mas, key_1, key_2) => {
     return mas.map((item) => ({

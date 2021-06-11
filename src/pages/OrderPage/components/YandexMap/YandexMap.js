@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {Map, Placemark, YMaps} from 'react-yandex-maps';
-import pointMapIcon from '../../../../assets/images/placemark-icon.svg';
+import pointMapIcon from '@/assets/images/placemark-icon.svg';
 import {useDispatch, useSelector} from 'react-redux';
-import {cityNameSelector, pointNameSelector} from '../../../../store/selectors/orderSelector';
-import {pointsSelector} from '../../../../store/selectors/locationSelector';
+import {cityNameSelector, pointNameSelector} from '@/store/selectors/orderSelector';
+import {pointsSelector} from '@/store/selectors/locationSelector';
 import './styles.scss';
-import {setPoint} from '../../../../store/reducers/orderReducer';
+import {setPoint} from '@/store/reducers/orderReducer';
 
 const mapProperties = {
     iconLayout: 'default#image',
